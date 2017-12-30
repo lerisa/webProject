@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+    <style>
+        html {
+
+            position: relative;
+
+            min-height: 100%;
+        }
+ label
+{
+  color: white ; 
+  font-size: 130%;
+  
+  
+} 
+        body {
+
+ background-image:url("C://Users//Administrator//Desktop//1.jpg");
+
+            margin: 0 0 100px;
+            /* bottom = footer height */
+        }
+
+        form {
+
+
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+    <form method="get" name="myForm">
+
+    <label for="Name"> <b>Enter Name:</b><span class="label label-primary"></span> </label>
+    
+     <input type="text" name="fname" id="input">
+
+     <button type="button" class="btn btn-secondary" onclick="searchURL()" value="submit" >Click Me</button>
+
+        <!-- <p >welcome  <b id="output"></b></p> -->
+    </form>
+
+   
+    <script>
+        function searchURL() {
+            /* var input = document.getElementById("input").value;//lerisa
+ document.getElementById("output").innerHTML = input;//welcome lerisa
+ its like int i=20;*/
+            var input = document.getElementById("input").value; //lerisa
+
+            // Store
+            localStorage.setItem("username", input);
+
+            //   document.getElementById("output").innerHTML = localStorage.username;//welcome lerisa
+
+            window.location.href = "C://Users//Administrator//Desktop/lol.html";
+   }
+    </script>
+</body>
+</html>
