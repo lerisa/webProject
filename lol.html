@@ -2,228 +2,209 @@
 
 <html lang="en">
 
-<nav class="fixed-nav-bar"><a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank"> Share on Facebook</a></nav>
+<nav class="fixed-nav-bar">
+    <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank"> Share on Facebook</a>
+</nav>
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
 
-<title>HAPPY EASTER</title>
+    <title>HAPPY EASTER</title>
 
-<style>
+    <style>
+        html {
 
-html {
+            position: relative;
 
-position: relative;
+            min-height: 100%;
+        }
 
-min-height: 100%;
 
-}
 
+        nav {
+            /* background-color: rgb(173, 32, 32); */
+            display: block;
 
+            text-align: center;
 
-nav {
+            font-size: 250%;
 
-/* background-color: rgb(173, 32, 32); */
+            padding: 0;
 
-display: block;
+            height: 100px;
 
-text-align: center;
+            margin: 0 auto;
 
-font-size: 250%;
+            position: fixed;
+            /* Set the navbar to fixed position */
+            top: 0;
+            /* Position the navbar at the top of the page */
+            width: 100%;
+            /* Full width */
+        }
 
-padding: 0;
 
-height:100px;
 
-margin: 0 auto;
+        body {
 
-position: fixed; /* Set the navbar to fixed position */
 
-top: 0; /* Position the navbar at the top of the page */
 
-width: 100%; /* Full width */
+            background-image: url("C://Users//Administrator//Desktop//image.jpg");
 
+            margin: 0 0 100px;
+            /* bottom = footer height */
+        }
 
-}
 
 
+        h1 {
 
-body {
+            text-align: center;
 
+            color: black;
 
+            margin-top: 20%;
 
-background-image:url("C://Users//Administrator//Desktop//1.jpg");
+            font-size: 250%;
+        }
 
-margin: 0 0 100px;
+        footer {
+            /* background-color: rgb(173, 32, 32); */
+            position: fixed;
 
+            text-align: center;
 
-/* bottom = footer height */
+            font-size: 250%;
 
-}
+            bottom: 0;
 
+            height: 100px;
 
+            width: 100%;
+        }
+    </style>
 
-h1 {
 
-text-align: center;
 
-color: black;
 
-margin-top: 20%;
+    <h1 id="messageLabel"> </h1>
 
-font-size: 250%;
 
 
+    <script>
+        var message = "Happy Easter " + localStorage.username + "!!!!";
 
-}
+        var msgCount = 0;
 
-footer {
+        var blinkCount = 0;
 
-/* background-color: rgb(173, 32, 32); */
+        var blinkFlg = 0;
 
-position: fixed;
+        var timer1, timer2;
 
-text-align: center;
+        var messageLabel = document.getElementById("messageLabel");
 
-font-size: 250%;
 
-bottom: 0;
 
-height: 100px;
+        timer1 = setInterval("textFunc()", 170); // every 150 milliseconds
 
-width: 100%;
 
-}
 
-</style>
 
 
+        function blinkFunc() {
 
 
-<h1 id="messageLabel"> </h1>
 
+            // blink 5 times.
 
+            if (blinkCount < 4) {
 
-<script>
-   
-var message = "Happy Easter "+localStorage.username+"!!!!";
 
-var msgCount = 0;
 
-var blinkCount = 0;
+                if (blinkFlg == 0) {
+                    //if no blink(blinkFlg==0) make it blink(show message) and make flag to zero so that it goes to else condition 
+                    messageLabel.innerHTML = message;
 
-var blinkFlg = 0;
 
-var timer1, timer2;
 
-var messageLabel = document.getElementById("messageLabel");
+                    blinkFlg = 1;
 
+                    blinkCount++;
 
 
-timer1 = setInterval("textFunc()", 170                                                                  ); // every 150 milliseconds
 
+                } else {
+                    //if  blink(blinkFlg==1) make it no blink(show no message)
+                    messageLabel.innerHTML = "";
 
+                    blinkFlg = 0;
 
+                }
 
 
-function blinkFunc() {
 
+            } else {
 
+                // Stop timer
 
-// blink 5 times.
+                clearInterval(timer2);
 
-if (blinkCount < 4) {
+            }
 
 
 
-if (blinkFlg == 0)
- {
-//if no blink(blinkFlg==0) make it blink(show message) and make flag to zero so that it goes to else condition 
-messageLabel.innerHTML = message;
 
 
+        }
 
-blinkFlg = 1;
+        function textFunc() {
 
-blinkCount++;
 
 
+            messageLabel.innerHTML = message.substring(0, msgCount);
 
-}
- else
- {
-//if  blink(blinkFlg==1) make it no blink(show no message)
-messageLabel.innerHTML = "";
+            console.log(messageLabel.innerHTML)
 
-blinkFlg = 0;
+            // console.log(message.length);
 
-}
+            // console.log(msgCount);
 
+            if (msgCount == message.length) {
 
+                console.log(msgCount)
 
-} 
-else {
+                // Stop timer
 
-// Stop timer
+                clearInterval(timer1);
 
-clearInterval(timer2);
 
-}
 
+                // Start blinking animation!
 
+                timer2 = setInterval("blinkFunc()", 200);
 
 
 
-}
+            } else {
 
-function textFunc() {
+                msgCount++;
 
+            }
 
 
-messageLabel.innerHTML = message.substring(0, msgCount);
 
-console.log(messageLabel.innerHTML)
-
-// console.log(message.length);
-
-// console.log(msgCount);
-
-if (msgCount == message.length) {
-
-console.log(msgCount)
-
-// Stop timer
-
-clearInterval(timer1);
-
-
-
-// Start blinking animation!
-
-timer2 = setInterval("blinkFunc()", 200);
-
-
-
-} else {
-
-msgCount++;
-
-}
-
-
-
-}
-
-
-
-</script>
+        }
+    </script>
 
 
 
@@ -232,17 +213,16 @@ msgCount++;
 </head>
 
 <script>
-
 </script>
 
 
 <body>
 
-<footer>
+    <footer>
 
-<a href="whatsapp://send?text=<<HERE GOES THE URL ENCODED TEXT YOU WANT TO SHARE>>" data-action="share/whatsapp/share">Share via Whatsapp</a>
+        <a href="whatsapp://send?text=<<HERE GOES THE URL ENCODED TEXT YOU WANT TO SHARE>>" data-action="share/whatsapp/share">Share via Whatsapp</a>
 
-</footer>
+    </footer>
 
 </body>
 
